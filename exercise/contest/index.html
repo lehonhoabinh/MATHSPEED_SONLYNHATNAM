@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="top-section">
+            <div class="turn-back">
+                <img src="assets/images/turn-back.svg">
+            </div>
+            <div class="point time"></div>
+            <button class="submit-btn" onclick="showAskForSubmit();">
+                <img src="assets/images/submit-icon.svg" alt="">
+                Nộp bài
+            </button>
+        </div>
+        <div class="exam">
+            <div class="part-title">I. Trắc nghiệm</div>
+            <div class="multiple-choice">
+            </div>
+
+            <div class="part2-title">II. Tự luận trả lời ngắn</div>
+            <div class="constructed-response">
+            </div>
+        </div>
+
+        <div class="ask-for-submit hide">
+            <div class="background"></div>
+            <div class="ask-container">
+                <div class="ask">Bạn chắc chắn nộp bài chứ</div><br>
+                <div class="double-btn">
+                    <div class="continue" onclick="
+                        hideAskForSubmit();">Tiếp tục làm</div>
+                    <div class="submit" onclick="
+                        hideAskForSubmit(); submitExam();
+                    ">Nộp bài</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="time-run-out hide">
+            <div class="background"></div>
+            <div class="notificate">Đã hết thời gian làm bài</div>
+        </div>
+
+        <div class="cancel-exam hide">
+            <div class="background"></div>
+            <div class="ask-container">
+                <div class="ask">Bạn chắc chắn muốn thoát chứ, bài thi sẽ bị huỷ</div><br>
+                <div class="double-btn">
+                    <div class="continue" onclick="
+                        hideCancelExam();">Tiếp tục làm</div>
+                    <div class="submit" onclick="
+                        hideCancelExam();
+                        document.location.href = '../';
+                    ">Thoát</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="scripts/contest.js"></script>
+</body>
+</html>

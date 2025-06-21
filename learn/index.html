@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathSpeed</title>
+    <link rel="stylesheet" href="/mathspeed/styles/style.css">
+</head>
+<body>
+    <div class="screen">
+        <nav>
+            <div class="math-link">
+                <img class="favicon" src="/mathspeed/assets/images/math-logo.svg">
+                <span class="logo-title">MathSpeed</span>
+            </div>
+            <div class="learn-link" onclick="
+                document.location.href = './'
+            ">
+                <img src="assets/images/book-logo.svg" class="learn-logo">
+                <span class="logo-title">Học</span>
+            </div>
+            <div class="exercise-link" onclick="
+                document.location.href = '/mathspeed/exercise';
+            ">
+                <img src="assets/images/exercise-logo.svg" class="exercise-logo">
+                <span class="logo-title">Làm đề thi</span>
+            </div>
+            <div class="download-link" onclick="
+                document.location.href = '/mathspeed/download';
+            ">
+                <img src="assets/images/download-logo.svg" class="download-logo">
+                <span class="logo-title">Tải app điện thoại</span>
+            </div>
+        </nav>
+
+        <div class="mid-section">
+            
+        </div>
+    </div>
+
+    <script src="/mathspeed/scripts/main.js"></script>
+    <div style="position: fixed; bottom: 20px; right: 20px;">
+        <a href="/mathspeed/ai/" title="Trợ lý AI" style="
+            display: flex;
+            align-items: center;
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-family: Arial;
+        ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                 viewBox="0 0 24 24" fill="white" style="margin-right: 8px;">
+                <path d="M12 2a1 1 0 011 1v1h3a1 1 0 010 2h-.27l1.65 1.65a1 1 0 01.12 1.32l-.12.13a7.003 7.003 0 01-11.46 0 1 1 0 01.12-1.32L8.27 6H8a1 1 0 010-2h3V3a1 1 0 011-1zm-3 10a1 1 0 100 2 1 1 0 000-2zm6 0a1 1 0 100 2 1 1 0 000-2z"/>
+            </svg>
+            Trợ lý AI
+        </a>
+    </div>
+    
+</body>
+</html>

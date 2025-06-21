@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e8f5e9; /* Light green background */
+}
+
+.screen {
+    display: flex;
+    flex-direction: column; /* Chia màn hình thành các phần theo chiều dọc */
+    height: 100vh;
+}
+
+/* Default nav styles */
+nav {
+    width: 100%;
+    height: 100px; /* Chiều cao mặc định */
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 20px;
+}
+
+/* Style for each div in nav */
+nav > div {
+    margin-right: 5%;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+nav > div:hover {
+    background-color: #c8e6c9; /* Light green hover effect */
+    border-radius: 10px;
+}
+
+nav img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo-title {
+    font-size: 25px;
+    font-weight: 600;
+    color: #285b9e; /* Dark green */
+}
+
+/* Mid-section */
+.mid-section {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.mid-section h1 {
+    color: rgb(34, 139, 230);
+    font-size: 50px;
+    text-align: center;
+    border-bottom: 2px solid rgb(230, 230, 230);
+}
+
+/* Styling for unit line */
+.unit-line {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.unit-name {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(161, 0, 182); 
+    margin-top: 100px;
+}
+
+.unit-name::before {
+    content: "";
+    background: linear-gradient(to right, rgb(161, 0, 182), rgba(0, 0, 0, 0));
+    width: 10%;
+    height: 60px;
+}
+
+.unit-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    align-items: center;
+}
+
+.level {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Level button styles */
+.level-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.level-btn.lock-level::before {
+    content: "🔒";
+}
+
+.level-btn.unlock-level::before {
+    content: "✓";
+}
+
+.level-btn.lock-level {
+    background-color: rgb(220, 220, 220);
+    font-size: 30px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.level-btn.unlock-level {
+    background-color: rgb(161, 0, 182);
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.level-btn:hover {
+    transform: scale(1.1);
+}
+
+.level:nth-child(odd) {
+    margin-left: -50px;
+}
+
+.level:nth-child(even) {
+    margin-left: 50px;
+}
+
+/* Intro level */
+.intro-level {
+    /* position: absolute;
+    right: 30%; */
+    background-color: #f1f8e9; /* Light green background */
+    padding: 20px 25px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    width: 320px;
+    transition: transform 0.3s ease;
+}
+
+.intro-level.show {
+    transform: translateY(10%) scale(1);
+}
+
+/* Start button */
+.start-btn {
+    background-color: #ffffff;
+    color: #388e3c; /* Dark green text */
+    width: 80%;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-top: 15px;
+    border: 1px solid #c8e6c9; /* Light green border */
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.start-btn:hover {
+    background-color: #c8e6c9; /* Soft green hover effect */
+    color: #ffffff; /* White text on hover */
+}
+
+/* Additional styling for intro text */
+.level-name {
+    color: #388e3c; /* Dark green for consistency */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-section h1 {
+    color: rgb(34, 139, 230); /* Xanh dương nhã nhặn */
+    font-size: 25px;
+    text-align: center;
+}
+
+.identity {
+    background-color: rgba(52, 152, 219, 0.8); /* Màu xanh biển trong suốt */
+    width: 100%;
+    height: inherit;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 8px; /* Thêm bo góc mềm mại */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng đổ bóng nhẹ */
+    margin-top: 30px;
+    text-align: center; /* Căn giữa nội dung */
+}
+

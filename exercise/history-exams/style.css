@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.screen {
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    height: 100%;
+}
+
+.top-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 70px;
+    display: flex;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+    justify-content: right;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.turn-back {
+    cursor: pointer;
+}
+
+.submit-btn {
+    position: fixed;
+    width: 120px;
+    height: 50px;
+    background-color: rgb(0, 106, 114);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: rgb(2, 129, 138);
+}
+
+.point {
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.choice {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.select-circle {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.selected {
+    background-color: #008CBA;
+    /* Màu xanh nước biển */
+    color: #fff;
+}
+
+.answer {
+    display: inline-block;
+    margin-left: 10px;
+    width: 50%;
+    padding: 10px 15px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+}
+
+.true-answer {
+    background-color: rgb(0, 180, 120);
+}
+
+
+.exam {
+    background-color: rgb(250, 250, 250);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    width: 90%;
+    margin: 70px auto;
+    margin-bottom: 0;
+    padding: 20px 20px;
+}
+
+.part-title,
+.part2-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(68, 202, 211);
+}
+
+.part2-title {
+    margin-top: 50px;
+}
+
+.line {
+    border-top: 2px solid rgb(220, 220, 220);
+    margin: 30px 0;
+}
+
+.question-id,
+.question-name {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.explain {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.hide-explain {
+    display: none;
+}
+
+.indent {
+    padding-left: 30px;
+    color: rgb(178, 3, 187)
+}
+
+.result-icon {
+    font-size: 40px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.result-icon.true-selected {
+    color: rgb(0, 180, 120);
+}
+
+.result-icon.false-selected {
+    color: rgb(255, 93, 56);
+}
+
+.result-icon.not-selected {
+    color: rgb(255, 194, 12);
+}
+
+.select-circle.true-selected {
+    background-color: rgb(0, 180, 120);
+    color: white;
+}
+
+.select-circle.false-selected {
+    background-color: rgb(255, 93, 56);
+    color: white;
+}
+
+.answer-area {
+    display: flex;
+    align-items: center;
+}
+
+.your-answer {
+    width: 60%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.result {
+    color: rgb(0, 180, 120);
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+/* Lớp overlay */
+.ask-for-submit {
+    position: fixed;
+    /* Đặt cố định trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Nền tối làm mờ */
+    z-index: 9999;
+    /* Đảm bảo nằm trên cùng */
+    pointer-events: auto;
+    /* Cho phép tương tác với lớp này */
+    visibility: visible;
+    /* Hiển thị mặc định */
+}
+
+/* Ẩn overlay khi cần */
+.ask-for-submit.hide {
+    visibility: hidden;
+    pointer-events: none;
+    /* Ngăn tương tác khi ẩn */
+}
+
+/* Nền mờ phía sau */
+.ask-for-submit .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Màu nền tối mờ */
+    z-index: 1;
+}
+
+/* Container chính */
+.ask-for-submit .ask-container {
+    position: relative;
+    z-index: 2;
+    background: white;
+    /* Nền trắng cho popup */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 50%;
+    /* Kích thước popup */
+}
+
+/* Câu hỏi */
+.ask-for-submit .ask {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Container cho 2 nút */
+.ask-for-submit .double-btn {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Nút chung */
+.ask-for-submit .double-btn div {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Nút tiếp tục */
+.ask-for-submit .double-btn .continue {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.ask-for-submit .double-btn .continue:hover {
+    background-color: #e0e0e0;
+}
+
+/* Nút nộp bài */
+.ask-for-submit .double-btn .submit {
+    background-color: #ff5e5e;
+    color: white;
+}
+
+.ask-for-submit .double-btn .submit:hover {
+    background-color: #ff4040;
+}
+
+.running-out {
+    color: red;
+    font-size: 24px;
+    animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1.2); /* Kích thước ban đầu */
+    }
+    50% {
+        transform: scale(1.4); /* Phóng to */
+    }
+    100% {
+        transform: scale(1.2); /* Quay lại kích thước ban đầu */
+    }
+}
+
+/* Lớp overlay */
+.time-run-out {
+    position: fixed;
+    /* Đặt cố định trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Nền tối làm mờ */
+    z-index: 9999;
+    /* Đảm bảo nằm trên cùng */
+    pointer-events: auto;
+    /* Cho phép tương tác với lớp này */
+    visibility: visible;
+    /* Hiển thị mặc định */
+}
+
+/* Ẩn overlay khi cần */
+.time-run-out.hide {
+    visibility: hidden;
+    pointer-events: none;
+    /* Ngăn tương tác khi ẩn */
+}
+
+/* Nền mờ phía sau */
+.time-run-out .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Màu nền tối mờ */
+    z-index: 1;
+}
+
+.notificate {
+    background-color: rgb(46, 0, 105);
+    width: inherit;
+    margin: 0 10%;
+    height: 150px;;
+    color: white;
+    font-size: 50px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 150px;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.cancel-exam {
+    position: fixed;
+    /* Đặt cố định trên màn hình */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Nền tối làm mờ */
+    z-index: 9999;
+    /* Đảm bảo nằm trên cùng */
+    pointer-events: auto;
+    /* Cho phép tương tác với lớp này */
+    visibility: visible;
+    /* Hiển thị mặc định */
+}
+
+/* Ẩn overlay khi cần */
+.cancel-exam.hide {
+    visibility: hidden;
+    pointer-events: none;
+    /* Ngăn tương tác khi ẩn */
+}
+
+/* Nền mờ phía sau */
+.cancel-exam .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Màu nền tối mờ */
+    z-index: 1;
+}
+
+/* Container chính */
+.cancel-exam .ask-container {
+    position: relative;
+    z-index: 2;
+    background: white;
+    /* Nền trắng cho popup */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 50%;
+    /* Kích thước popup */
+}
+
+/* Câu hỏi */
+.cancel-exam .ask {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Container cho 2 nút */
+.cancel-exam .double-btn {
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Nút chung */
+.cancel-exam .double-btn div {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Nút tiếp tục */
+.cancel-exam .double-btn .continue {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.cancel-exam .double-btn .continue:hover {
+    background-color: #e0e0e0;
+}
+
+/* Nút nộp bài */
+.cancel-exam .double-btn .submit {
+    background-color: #ff5e5e;
+    color: white;
+}
+
+.cancel-exam .double-btn .submit:hover {
+    background-color: #ff4040;
+}
+
+@media (max-width: 500px) {
+    .submit-btn {
+        position: fixed;
+        width: 80px;
+        height: 50px;
+        padding: 5px;
+        background-color: rgb(0, 106, 114);
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}

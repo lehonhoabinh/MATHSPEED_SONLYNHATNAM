@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="top-section">
+            <div class="learn-link" onclick="
+                document.location.href = 'learn';
+            ">
+                <img src="contest/assets/images/turn-back.svg" class="learn-logo">
+            </div>
+            <h1>Đề thi thử tuyển sinh vào lớp 10 THPT</h1>
+        </div>
+        <div class="rules-container">
+            <h1>Thể Lệ Cuộc Thi</h1>
+            <p class="introduction">
+                Hãy đọc kỹ thể lệ cuộc thi trước khi tham gia để đảm bảo quyền lợi và tuân thủ các quy định.
+            </p>
+            <div class="rule">
+                <h2>1. Đối tượng tham gia</h2>
+                <p>Mọi học sinh cần thi tuyển sinh vào lớp 10 đều có thể tham gia</p>
+            </div>
+            <div class="rule">
+                <h2>2. Thời gian: Không quá 360 phút</h2>
+                <div class="time-input-group">
+                    <label for="timeInput">Thời gian: </label>
+                    <input type="text" class="timeInput" value="120">
+                    <span> phút (có thể chỉnh sửa)</span>
+                </div>
+            </div>
+            <div class="rule">
+                <h2>3. Cấu trúc đề thi</h2>
+                <p>- Gồm 2 phần: Trắc nghiệm lựa chọn và Tự luận 
+                    trả lời ngắn</p>
+                <p><strong>- Trắc nghiệm lựa chọn:</strong> 16 câu mỗi câu 0,25đ</p>
+                <p><strong>- Tự luận trả lời ngắn:</strong> 5 câu tổng là 6 điểm</p>
+            </div>
+            <button class="cta-button" onclick="submitData()">
+                Tôi đã hiểu và đồng ý</button>
+        </div>
+
+        <div class="history-exam">
+            <h1>Lịch sử làm bài</h1>
+            <div class="storage-exams">
+                
+            </div>
+        </div>
+    </div> 
+    <script src="exercise/main.js"></script>
+</body>
+</html>
+

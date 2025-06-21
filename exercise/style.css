@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif; /* Font hiện đại và dễ đọc */
+}
+
+body {
+    background-color: #f5f7fa; /* Tông màu nền nhẹ nhàng */
+    color: #2c3e50; /* Tông màu chữ đậm hơn để dễ đọc */
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-top: 30px;
+}
+
+.top-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(135deg, #2980b9, #6dd5fa); /* Gradient header */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.learn-link {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.learn-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.learn-link img {
+    width: 50px;
+    height: 50px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.rules-container, .history-exam {
+    width: 90%;
+    max-width: 800px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    text-align: left;
+}
+
+.rules-container h1, .history-exam h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #2980b9;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+
+.introduction {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rule {
+    margin-bottom: 30px;
+}
+
+.rule h2 {
+    font-size: 1.6rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.rule p {
+    font-size: 1.2rem;
+    color: #34495e;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.time-input-group {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background: #f9f9f9;
+}
+
+.time-input-group label {
+    margin-right: 10px;
+    color: #636e72;
+}
+
+.time-input-group input {
+    font-size: 1.2rem;
+    width: 80px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.time-input-group input:focus {
+    outline: none;
+    border-color: #2980b9;
+}
+
+.cta-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #2ecc71;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .rules-container {
+        padding: 20px;
+    }
+
+    .time-input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .time-input-group label {
+        margin-bottom: 10px;
+    }
+}
+
+.exam-container {
+    display: grid;
+    grid-template-columns: 40% 30% 30%;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.exam-container:nth-child(odd) {
+    background-color: rgb(240, 240, 240);
+}
+
+.exam-name {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.delete-exam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    width: 80%;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.access-exam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightskyblue;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    width: 80%;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.empty-list {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+}
